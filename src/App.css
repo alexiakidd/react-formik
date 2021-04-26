@@ -1,6 +1,7 @@
-.App {
+body {
 	display: flex;
 	justify-content: center;
+	align-content: center;
 }
 
 label {
@@ -11,7 +12,8 @@ label {
 
 input[type='text'],
 input[type='email'],
-input[type='password'], textarea {
+input[type='password'],
+textarea {
 	display: block;
 	width: 400px;
 	padding: 6px 12px;

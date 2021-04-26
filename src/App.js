@@ -1,10 +1,12 @@
-import LoginForm from './components/LoginForm'
+// import LoginForm from './components/LoginForm'
 import './App.css'
+import YouTubeForm from './components/YouTubeForm'
 
 function App() {
 	return (
 		<div>
-			<LoginForm />
+			{/* <LoginForm />  */}
+			<YouTubeForm />
 		</div>
 	)
 }

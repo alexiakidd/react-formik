@@ -106,13 +106,14 @@ function YouTubeForm() {
 									{phNumbers.map((_phNumber, index) => (
 										<div key={index}>
 											<Field name={`phNumbers[${index}]`} />
-											<button type="button" onClick={() => remove(index)}>
-												{' '}
-												-{' '}
-											</button>
+											{index > 0 && (
+												<button type="button" onClick={() => remove(index)}>
+													-
+												</button>
+											)}
+
 											<button type="button" onClick={() => push(index)}>
-												{' '}
-												+{' '}
+												+
 											</button>
 										</div>
 									))}

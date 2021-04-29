@@ -47,9 +47,11 @@ function YouTubeForm() {
 		<Formik
 			initialValues={initialValues}
 			validationSchema={validationSchema}
-			onSubmit={onSubmit}>
-			{/*validateOnChange={false}
-			validateOnBlur={false} */}
+			onSubmit={onSubmit}
+			// validateOnChange={false}
+			// validateOnBlur={false}
+			// validateOnMount
+		>
 			{(formik) => {
 				console.log('formik props', formik)
 				return (
@@ -163,15 +165,21 @@ function YouTubeForm() {
 						<button type="button" onClick={() => formik.setTouched('comments')}>
 							Visit comments
 						</button>
-						<button type="button" onClick={() => formik.setTouched({
-              name:true,
-              email:true,
-              channel:true,
-              comments:true,
-            })}>
+						<button
+							type="button"
+							onClick={() =>
+								formik.setTouched({
+									name: true,
+									email: true,
+									channel: true,
+									comments: true,
+								})
+							}>
 							Visit fiels
 						</button>
-						<button type="submit">Submit</button>
+						<button type="submit" disabled={!formik.isValid}>
+							Submit
+						</button>
 					</Form>
 				)
 			}}

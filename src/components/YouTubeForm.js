@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
 	Formik,
 	Form,
@@ -15,6 +15,7 @@ const initialValues = {
 	name: 'Alessandra',
 	email: '',
 	channel: '',
+	comments: '',
 	address: '',
 	//nested objects
 	social: {
@@ -24,7 +25,20 @@ const initialValues = {
 	phoneNumbers: ['', ''],
 	phNumbers: [''],
 }
-
+const savedValues = {
+	name: 'Alessandra',
+	email: 'aleradcliffe@gmail.com',
+	channel: 'Alessandra Lima',
+	comments: 'Welcome to my channel',
+	address: '221b, baker street',
+	//nested objects
+	social: {
+		facebook: '',
+		twitter: '',
+	},
+	phoneNumbers: ['', ''],
+	phNumbers: [''],
+}
 const onSubmit = (values, onSubmitProps) => {
 	console.log('Form data', values)
 	console.log('Submit props', onSubmitProps)
@@ -45,11 +59,14 @@ const validateComments = (value) => {
 }
 
 function YouTubeForm() {
+	const [formValues, setFormValues] = useState(null)
+
 	return (
 		<Formik
-			initialValues={initialValues}
+			initialValues={formValues || initialValues}
 			validationSchema={validationSchema}
 			onSubmit={onSubmit}
+			enableReinitialize
 			// validateOnChange={false}
 			// validateOnBlur={false}
 			// validateOnMount
@@ -155,7 +172,7 @@ function YouTubeForm() {
 							</FieldArray>
 						</div>
 
-						<button
+						{/* <button
 							type="button"
 							onClick={() => formik.validateField('comments')}>
 							Validate comments
@@ -178,7 +195,12 @@ function YouTubeForm() {
 								})
 							}>
 							Visit fiels
+						</button> */}
+
+						<button type="button" onClick={() => setFormValues(savedValues)}>
+							Load Saved Data
 						</button>
+
 						<button
 							type="submit"
 							disabled={!formik.isValid || formik.isSubmitting}>

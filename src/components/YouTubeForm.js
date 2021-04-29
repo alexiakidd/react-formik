@@ -12,7 +12,7 @@ import './TextError'
 import TextError from './TextError'
 
 const initialValues = {
-	name: '',
+	name: 'Alessandra',
 	email: '',
 	channel: '',
 	address: '',
@@ -25,8 +25,10 @@ const initialValues = {
 	phNumbers: [''],
 }
 
-const onSubmit = (values) => {
+const onSubmit = (values, onSubmitProps) => {
 	console.log('Form data', values)
+	console.log('Submit props', onSubmitProps)
+	onSubmitProps.setSubmitting(false)
 }
 
 const validationSchema = Yup.object({
@@ -177,7 +179,9 @@ function YouTubeForm() {
 							}>
 							Visit fiels
 						</button>
-						<button type="submit" disabled={!formik.isValid}>
+						<button
+							type="submit"
+							disabled={!formik.isValid || formik.isSubmitting}>
 							Submit
 						</button>
 					</Form>

@@ -28,13 +28,13 @@ function LoginForm() {
 								control="input"
 								type="email"
 								label="Email"
-								name="Email"
+								name="email"
 							/>
 							<FormikControl
 								control="input"
 								type="password"
 								label="Password"
-								name="Password"
+								name="password"
 							/>
 							<button type="submit" disabled={!formik.isValid}>
 								Submit

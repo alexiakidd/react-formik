@@ -5,8 +5,8 @@ import LoginForm from './components/LoginForm'
 function App() {
 	return (
 		<div>
-			<FormikContainer />
-			{/* <LoginForm /> */}
+			{/* <FormikContainer /> */}
+			<LoginForm />
 		</div>
 	)
 }

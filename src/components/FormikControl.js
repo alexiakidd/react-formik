@@ -1,4 +1,5 @@
 import CheckboxGroup from './CheckboxGroup'
+import DatePicker from './DatePicker'
 import Input from './Input'
 import RadioButton from './RadioButton'
 import Select from './Select'
@@ -18,6 +19,7 @@ function FormikControl(props) {
 		case 'checkbox':
 			return <CheckboxGroup {...rest} />
 		case 'date':
+			return <DatePicker {...rest} />
 		default:
 			return null
 	}

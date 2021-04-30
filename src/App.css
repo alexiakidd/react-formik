@@ -1,7 +1,6 @@
-body {
+.App {
 	display: flex;
 	justify-content: center;
-	align-content: center;
 }
 
 label {
@@ -10,10 +9,17 @@ label {
 	margin-bottom: 5px;
 }
 
+input + label {
+	font-weight: bold;
+	display: inline-flex;
+	margin-right: 20px;
+}
+
 input[type='text'],
 input[type='email'],
 input[type='password'],
-textarea {
+textarea,
+select {
 	display: block;
 	width: 400px;
 	padding: 6px 12px;
